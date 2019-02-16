@@ -190,7 +190,7 @@ namespace Test1
 			//	}
 			//}
 
-			var fileName = "Сериализованнный тестовый корпус";
+			var fileName = @"C:\Users\User\Documents\CLPFGLD\Test1\Сериализованнный тестовый корпус";
 
 			//FileStream stream = File.Create(fileName);
 			var formatter = new BinaryFormatter();
