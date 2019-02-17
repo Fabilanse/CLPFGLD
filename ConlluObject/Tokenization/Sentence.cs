@@ -9,6 +9,7 @@ namespace ConlluObject
 
 		public Sentence()
 		{
+			Tokens = new List<Token>();
 		}
 	}
 }

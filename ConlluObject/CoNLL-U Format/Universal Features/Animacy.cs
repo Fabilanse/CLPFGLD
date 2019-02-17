@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConlluObject.Universal_Features
+namespace ConlluObject
 {
 	public enum AnimacyTypes
 	{
+		/// <summary>
+		/// Null
+		/// </summary>
+		[Description(Description = "", FullName = "Null")]
+		Null,
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -37,6 +39,11 @@ namespace ConlluObject.Universal_Features
 	{
 		public static AnimacyTypes Get(string txt)
 		{
+			if (string.IsNullOrEmpty(txt))
+			{
+				return AnimacyTypes.Null;
+			}
+
 			switch (txt)
 			{
 				case "Anim":

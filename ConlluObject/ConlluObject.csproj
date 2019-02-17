@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoNLL-U Format\Universal Dependency Relations\DependencyRelations.cs" />
     <Compile Include="Tokenization\Paragraph.cs" />
     <Compile Include="Tokenization\Token.cs" />
     <Compile Include="Tools\BaseTools.cs" />
-    <Compile Include="Universal Features\Animacy.cs" />
-    <Compile Include="Universal POS tags\PartOfSpeechCategories.cs" />
+    <Compile Include="CoNLL-U Format\Universal Features\Animacy.cs" />
+    <Compile Include="CoNLL-U Format\Universal POS tags\PartOfSpeechCategories.cs" />
     <Compile Include="SentenceDebug.cs" />
     <Compile Include="Tokenization\Sentence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

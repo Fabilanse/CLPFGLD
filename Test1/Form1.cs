@@ -38,19 +38,26 @@ namespace Test1
 
             var sentences = a.GetVariable("sentences");
 
-            var pronouns = new HashSet<string>();
-            foreach (var tokens in sentences)
+			var pronouns = new List<Sentence>();
+			var errorSentenses = new List<Sentence>();
+			foreach (var tokens in sentences)
             {
-                foreach (var t in tokens)
+				var sentence = new Sentence();
+
+				foreach (var t in tokens)
                 {
                     var item = new Token(t);
 
-                    if (item.Upostag == SpeechCategories.Pron)
-                    {
-                        pronouns.Add(item.Lemma);
-                    }
-                }
-            }
+					sentence.Tokens.Add(item);
+
+					if (item.Deprel == DependencyRelationsTypes.Null)
+					{
+						MessageBox.Show(item.Lemma);
+						errorSentenses.Add(sentence);
+					}
+				}
+				pronouns.Add(sentence);
+			}
 
             MessageBox.Show(string.Join(Environment.NewLine, pronouns));
 

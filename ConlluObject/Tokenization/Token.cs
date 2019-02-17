@@ -1,5 +1,4 @@
-﻿using ConlluObject.Universal_Features;
-
+﻿
 namespace ConlluObject.Tokenization
 {
 	public class Token
@@ -40,7 +39,10 @@ namespace ConlluObject.Tokenization
 
 		public int Head { get; set; }
 
-		public string Deprel { get; set; }
+		/// <summary>
+		/// Универсальное отношение зависимости к HEAD (root iff HEAD = 0) или определенный подтип для конкретного языка.
+		/// </summary>
+		public DependencyRelationsTypes Deprel { get; set; }
 
 		public dynamic Deps { get; set; }
 
@@ -55,8 +57,8 @@ namespace ConlluObject.Tokenization
 			Xpostag = obj["xpostag"];
 			Feats = new Feats(obj["feats"]);
 			Head = BaseTools.GetValue<int>(obj, "head");
-			Deprel = obj["deprel"];
-			Deps = obj["deps"];
+			Deprel = DependencyRelationsTools.Get(BaseTools.GetValue<string>(obj, "deprel"));
+			Deps = new Deps(obj["deps"]);
 			Misc = new Misc(obj["misc"]);
 		}
 	}
@@ -83,7 +85,7 @@ namespace ConlluObject.Tokenization
 
 	public class Feats
 	{
-		public string Animacy { get; set; }
+		public AnimacyTypes Animacy { get; set; }
 
 		public string Case { get; set; }
 
@@ -97,6 +99,16 @@ namespace ConlluObject.Tokenization
 			Case = BaseTools.GetValue<string>(obj, "Case");
 			Gender = BaseTools.GetValue<string>(obj, "Gender");
 			Number = BaseTools.GetValue<string>(obj, "Number");
+		}
+	}
+
+	public class Deps
+	{
+		public dynamic Value { get; set; }
+
+		public Deps(dynamic obj)
+		{
+			Value = obj;
 		}
 	}
 }

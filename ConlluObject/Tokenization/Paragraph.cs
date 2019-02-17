@@ -10,6 +10,7 @@ namespace ConlluObject.Tokenization
 
 		public Paragraph()
 		{
+			Sentences = new List<Sentence>();
 		}
 	}
 }
