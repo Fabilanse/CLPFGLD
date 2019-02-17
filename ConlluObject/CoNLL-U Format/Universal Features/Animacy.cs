@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ConlluObject
+﻿namespace ConlluObject
 {
 	public enum AnimacyTypes
 	{
@@ -37,26 +35,9 @@ namespace ConlluObject
 
 	public static class AnimacyTools
 	{
-		public static AnimacyTypes Get(string txt)
+		public static AnimacyTypes Get(string value)
 		{
-			if (string.IsNullOrEmpty(txt))
-			{
-				return AnimacyTypes.Null;
-			}
-
-			switch (txt)
-			{
-				case "Anim":
-					return AnimacyTypes.Anim;
-				case "Hum":
-					return AnimacyTypes.Hum;
-				case "Inan":
-					return AnimacyTypes.Inan;
-				case "Nhum":
-					return AnimacyTypes.Nhum;
-				default:
-					throw new NotImplementedException();
-			}
+			return BaseTools.StringToEnum<AnimacyTypes>(value);
 		}
 	}
 }

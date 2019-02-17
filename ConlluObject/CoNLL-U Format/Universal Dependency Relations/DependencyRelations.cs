@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConlluObject
+﻿namespace ConlluObject
 {
 	public enum DependencyRelationsTypes
 	{
@@ -241,13 +235,15 @@ namespace ConlluObject
 	{
 		public static DependencyRelationsTypes Get(string value)
 		{
-			if (string.IsNullOrEmpty(value) || value == "_")
+			if (value == "_")
 			{
 				return DependencyRelationsTypes.Null;
 			}
+
+			// Пока не понятно откуда но у некоторых значений есть вторая уточнительная часть. Но она пока не интересует так что ее опускаем
 			var splitedValue = value.Split(':')[0];
-			var firstToUpper = splitedValue.First().ToString().ToUpper() + splitedValue.Substring(1);
-			return (DependencyRelationsTypes)Enum.Parse(typeof(DependencyRelationsTypes), firstToUpper);
+
+			return BaseTools.StringToEnum<DependencyRelationsTypes>(splitedValue);
 		}
 	}
 }

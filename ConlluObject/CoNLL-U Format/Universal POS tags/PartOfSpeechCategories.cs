@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ConlluObject
+﻿namespace ConlluObject
 {
 	public enum SpeechCategories
 	{
@@ -104,52 +102,14 @@ namespace ConlluObject
 		/// Дієслово
 		/// </summary>
 		[Description(Description = "Дієслово", FullName = "Verb")]
-		Werb
+		Verb
 	}
 
 	public static class PartOfSpeechCategories
 	{
-		public static SpeechCategories Get(string txt)
+		public static SpeechCategories Get(string value)
 		{
-			switch (txt)
-			{
-				case "ADJ":
-					return SpeechCategories.Adj;
-				case "ADP":
-					return SpeechCategories.Adp;
-				case "ADV":
-					return SpeechCategories.Adv;
-				case "AUX":
-					return SpeechCategories.Aux;
-				case "CCONJ":
-					return SpeechCategories.Cconj;
-				case "DET":
-					return SpeechCategories.Det;
-				case "INTJ":
-					return SpeechCategories.Intj;
-				case "NOUN":
-					return SpeechCategories.Noun;
-				case "NUM":
-					return SpeechCategories.Num;
-				case "PART":
-					return SpeechCategories.Part;
-				case "PRON":
-					return SpeechCategories.Pron;
-				case "PROPN":
-					return SpeechCategories.Propn;
-				case "PUNCT":
-					return SpeechCategories.Punct;
-				case "SCONJ":
-					return SpeechCategories.Sconj;
-				case "SYM":
-					return SpeechCategories.Sym;
-				case "VERB":
-					return SpeechCategories.Werb;
-				case "X":
-					return SpeechCategories.X;
-				default:
-					throw new NotImplementedException();
-			}
+			return BaseTools.StringToEnum<SpeechCategories>(value);
 		}
 	}
 }
