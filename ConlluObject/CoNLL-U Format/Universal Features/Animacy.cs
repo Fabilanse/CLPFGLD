@@ -5,31 +5,31 @@
 		/// <summary>
 		/// Null
 		/// </summary>
-		[Description(Description = "", FullName = "Null")]
+		[Description(Description = "Не визначено", FullName = "Null")]
 		Null,
 
 		/// <summary>
-		/// 
+		/// Істота
 		/// </summary>
-		[Description(Description = "", FullName = "Animate")]
+		[Description(Description = "Істота", FullName = "Animate")]
 		Anim,
 
 		/// <summary>
-		/// 
+		/// Людина
 		/// </summary>
-		[Description(Description = "", FullName = "Human")]
+		[Description(Description = "Людина", FullName = "Human")]
 		Hum,
 
 		/// <summary>
-		/// 
+		/// Неістота
 		/// </summary>
-		[Description(Description = "", FullName = "Inanimate")]
+		[Description(Description = "Неістота", FullName = "Inanimate")]
 		Inan,
 
 		/// <summary>
-		/// 
+		/// Чи істота чи ні (бактерія)
 		/// </summary>
-		[Description(Description = "", FullName = "Non-humam")]
+		[Description(Description = "Чи істота чи ні (бактерія)", FullName = "Non-humam")]
 		Nhum
 	}
 

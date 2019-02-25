@@ -15,15 +15,15 @@
 		Adj,
 
 		/// <summary>
-		/// Положення?
+		/// Дієприкметник?
 		/// </summary>
-		[Description(Description = "Положення", FullName = "Adposition")]
+		[Description(Description = "Дієприкметник", FullName = "Adposition")]
 		Adp,
 
 		/// <summary>
-		/// Наріччя
+		/// Прислівник
 		/// </summary>
-		[Description(Description = "Наріччя", FullName = "Adverb")]
+		[Description(Description = "Прислівник", FullName = "Adverb")]
 		Adv,
 
 		/// <summary>
