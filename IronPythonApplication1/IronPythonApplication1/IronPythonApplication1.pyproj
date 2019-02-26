@@ -8,11 +8,13 @@
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
-    <InterpreterId>IronPython|2.7-32</InterpreterId>
-    <LaunchProvider>IronPython (.NET) launcher</LaunchProvider>
+    <InterpreterId>Global|PythonCore|3.6</InterpreterId>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
     <OutputPath>.</OutputPath>
     <Name>IronPythonApplication1</Name>
     <RootNamespace>IronPythonApplication1</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,13 +28,13 @@
     <None Include="IronPythonApplication1.py" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="IronPython|2.7-32" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="uk_iu-ud-dev.conllu" />
     <Content Include="uk_iu-ud-train-ansi.conllu" />
     <Content Include="uk_iu-ud-train.conllu" />
     <Content Include="Отладочный текст.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

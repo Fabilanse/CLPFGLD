@@ -70,7 +70,7 @@ namespace Serialization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\User\source\repos\IronPythonApplication1\IronPythonApplication1\IronPythonApplication1.py.
+        ///   Looks up a localized string similar to IronPythonApplication1.py.
         /// </summary>
         internal static string PythonExecuteFile {
             get {

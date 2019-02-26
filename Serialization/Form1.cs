@@ -39,7 +39,7 @@ namespace Serialization
 
 			engine.SetSearchPaths(paths);
 
-			var a = engine.ExecuteFile(Properties.Resources.PythonExecuteFile);
+			var a = engine.ExecuteFile(string.Format(@"{0}\{1}", Application.StartupPath, Properties.Resources.PythonExecuteFile));
 
 			var sentences = a.GetVariable("sentences");
 
