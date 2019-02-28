@@ -61,6 +61,16 @@ namespace Serialization.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] IronPythonApplication1 {
+            get {
+                object obj = ResourceManager.GetObject("IronPythonApplication1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to C:\Program Files\IronPython 2.7\Lib.
         /// </summary>
         internal static string IronPythonLibPath {
@@ -75,6 +85,23 @@ namespace Serialization.Properties {
         internal static string PythonExecuteFile {
             get {
                 return ResourceManager.GetString("PythonExecuteFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # doc_title = «Я обізвуся до них…»
+        ///# newdoc id = 0000
+        ///# newpar id = 0001
+        ///# sent_id = 0002
+        ///# text = У домі римського патриція Руфіна була прегарна фреска, зображення Венери та Адоніса.
+        ///# translit = U domi rymskoho patrycija Rufina bula preharna freska, zobrazennа Venery ta Adonisa.
+        ///1	У	у	ADP	Spsl	Case=Loc	2	case	2:case	Id=0003|LTranslit=u|Translit=U
+        ///2	домі	дім	NOUN	Ncmsln	Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing	6	obl	6:obl	Id=0004|LTranslit=dim|Translit=domi
+        ///3	римського	римський	ADJ	Ao-msgf	Cas [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Отладочный_текст {
+            get {
+                return ResourceManager.GetString("Отладочный_текст", resourceCulture);
             }
         }
     }

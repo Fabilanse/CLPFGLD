@@ -1,6 +1,9 @@
 ﻿
+using System;
+
 namespace ConlluObject.Tokenization
 {
+	[Serializable]
 	public class Token
 	{
 		/*
@@ -63,6 +66,7 @@ namespace ConlluObject.Tokenization
 		}
 	}
 
+	[Serializable]
 	public class Misc
 	{
 		public string Id { get; set; }
@@ -83,6 +87,7 @@ namespace ConlluObject.Tokenization
 		}
 	}
 
+	[Serializable]
 	public class Feats
 	{
 		public AnimacyTypes Animacy { get; set; }
@@ -102,6 +107,7 @@ namespace ConlluObject.Tokenization
 		}
 	}
 
+	[Serializable]
 	public class Deps
 	{
 		public dynamic Value { get; set; }

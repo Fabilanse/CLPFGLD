@@ -117,10 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="IronPythonApplication1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IronPythonApplication1.py;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="IronPythonLibPath" xml:space="preserve">
     <value>C:\Program Files\IronPython 2.7\Lib</value>
   </data>
   <data name="PythonExecuteFile" xml:space="preserve">
     <value>IronPythonApplication1.py</value>
+  </data>
+  <data name="Отладочный_текст" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Отладочный текст.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>
