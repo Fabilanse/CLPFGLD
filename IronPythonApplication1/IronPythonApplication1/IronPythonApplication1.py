@@ -11,6 +11,6 @@ data_file = open(r'C:\Users\dudnik\Documents\CLPFGLD\IronPythonApplication1\Iron
 for tokenlist in parse_incr(data_file):
     sentences.append(tokenlist)
 
-print(sentences[0][0])
+print(sentences[0])
 
 input()

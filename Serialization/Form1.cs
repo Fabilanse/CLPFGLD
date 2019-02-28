@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using IronPython.Hosting;
 using System.IO;
@@ -25,7 +24,7 @@ namespace Serialization
 			FileStream stream2 = File.OpenRead(fileName);
 
 			var formatter = new BinaryFormatter();
-			var v = (List<Token>)formatter.Deserialize(stream2);
+			var paragraph = (Paragraph)formatter.Deserialize(stream2);
 			stream2.Close();
 		}
 
@@ -43,14 +42,16 @@ namespace Serialization
 
 			var sentences = a.GetVariable("sentences");
 
-			var tokensList = new List<Token>();
-			foreach (var tokens in sentences)
+			var paragraph = new Paragraph();
+			foreach (var sentence in sentences)
 			{
-				foreach (var t in tokens)
+				var sentenceObject = new Sentence();
+				foreach (var token in sentence)
 				{
-					var item = new Token(t);
-					tokensList.Add(item);
+					var tokenObject = new Token(token);
+					sentenceObject.Tokens.Add(tokenObject);
 				}
+				paragraph.Sentences.Add(sentenceObject);
 			}
 
 			var ofd = new OpenFileDialog();
@@ -60,7 +61,7 @@ namespace Serialization
 
 			FileStream stream = File.Create(fileName);
 			var formatter = new BinaryFormatter();
-			formatter.Serialize(stream, tokensList);
+			formatter.Serialize(stream, paragraph);
 			stream.Close();
 		}
 	}

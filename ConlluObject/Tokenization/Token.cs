@@ -1,33 +1,10 @@
-﻿
-using System;
+﻿using System;
 
 namespace ConlluObject.Tokenization
 {
 	[Serializable]
 	public class Token
 	{
-		/*
- [('id', 1), 
-('form', u'\u0414\u0456\u0434\u0443\u0441\u044c'), 
-('lemma', u'\u0434\u0456\u0434\u0443\u0441\u044c'), 
-('upostag', 'NOUN'), 
-('xpostag', 'Ncmsny'), 
-('feats', OrderedDict([
-    ('Animacy', 'Anim'), 
-    ('Case', 'Nom'),
-    ('Gender', 'Masc'), 
-    ('Number', 'Sing')])),
-('head', 7), 
-('deprel', 'nsubj'), 
-('deps', [('nsubj', 7), ('nsubj', 9)]), 
-('misc', OrderedDict([
-    ('Id', '02tp'), 
-    ('LTranslit', u'didu\u015b'), 
-    ('SpaceAfter', 'No'), 
-    ('Translit', u'Didu\u015b')]))])
-
- */
-
 		public dynamic Id { get; set; }
 
 		public string Form { get; set; }
@@ -63,6 +40,11 @@ namespace ConlluObject.Tokenization
 			Deprel = DependencyRelationsTools.Get(BaseTools.GetValue<string>(obj, "deprel"));
 			Deps = new Deps(obj["deps"]);
 			Misc = new Misc(obj["misc"]);
+		}
+
+		public override string ToString()
+		{
+			return Form;
 		}
 	}
 
