@@ -19,7 +19,7 @@ namespace ConlluObject.Tokenization
 			var sb = new StringBuilder();
 			foreach (var token in Tokens)
 			{
-				sb.AppendFormat("{0} ", token.Form);
+				sb.AppendFormat("{0}{1}", token.Form, token.Misc.SpaceAfter ? " " : string.Empty);
 			}
 			return sb.ToString();
 		}

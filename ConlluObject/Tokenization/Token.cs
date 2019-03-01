@@ -97,7 +97,7 @@ namespace ConlluObject.Tokenization
 
 		public Deps(dynamic obj)
 		{
-			for (int i = 0; i < obj.__len__(); i++)
+			for (var i = 0; i < obj.__len__(); i++)
 			{
 				var relType = DependencyRelationsTools.Get(obj[i][0]);
 				var relId = obj[i][1];
@@ -105,6 +105,7 @@ namespace ConlluObject.Tokenization
 			}
 		}
 
+		[Serializable]
 		public class DependencyRelation
 		{
 			public DependencyRelationsTypes RelationType { get; set; }
