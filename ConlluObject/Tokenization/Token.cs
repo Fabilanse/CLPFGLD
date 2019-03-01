@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConlluObject.Tokenization
 {
@@ -24,7 +25,7 @@ namespace ConlluObject.Tokenization
 		/// </summary>
 		public DependencyRelationsTypes Deprel { get; set; }
 
-		public dynamic Deps { get; set; }
+		public Deps Deps { get; set; }
 
 		public Misc Misc { get; set; }
 
@@ -92,11 +93,29 @@ namespace ConlluObject.Tokenization
 	[Serializable]
 	public class Deps
 	{
-		public dynamic Value { get; set; }
+		public List<DependencyRelation> Relations = new List<DependencyRelation>();
 
 		public Deps(dynamic obj)
 		{
-			Value = obj;
+			for (int i = 0; i < obj.__len__(); i++)
+			{
+				var relType = DependencyRelationsTools.Get(obj[i][0]);
+				var relId = obj[i][1];
+				Relations.Add(new DependencyRelation(relType, relId));
+			}
+		}
+
+		public class DependencyRelation
+		{
+			public DependencyRelationsTypes RelationType { get; set; }
+
+			public int RelationId { get; set; }
+
+			public DependencyRelation(DependencyRelationsTypes dependencyRelationsType, int id)
+			{
+				RelationType = dependencyRelationsType;
+				RelationId = id;
+			}
 		}
 	}
 }

@@ -439,50 +439,6 @@
 100	контрреволюції	контрреволюція	NOUN	Ncfsgn	Animacy=Inan|Case=Gen|Gender=Fem|Number=Sing	99	nmod	99:nmod	Id=00b4|LTranslit=kontrrevolucija|SpaceAfter=No|Translit=kontrrevoluciji
 101	.	.	PUNCT	U	_	12	punct	12:punct	Id=00b5|LTranslit=.|Translit=.
 
-# newpar id = 00b7
-# sent_id = 00b8
-# text = Найперш барикада мала би перегородити затишну вітальню косачівського дому, бо, як дізнаємося з академічних пояснень, Ольга Драгоманова-Косач «стояла на ліберально-буржуазних позиціях», а її донька – на марксистських.
-# translit = Najpers barykada mala by perehorodyty zatysnu vitalnu kosacivskoho domu, bo, jak diznaemosа z akademicnych pojasnen, Olha Drahomanova-Kosac «stojala na liberalno-burzuaznych pozycijach», a jiji donka – na marksystskych.
-1	Найперш	найперш	ADV	Rs	Degree=Sup	5	advmod	5:advmod	Id=00b9|LTranslit=najpers|Translit=Najpers
-2	барикада	барикада	NOUN	Ncfsnn	Animacy=Inan|Case=Nom|Gender=Fem|Number=Sing	3	nsubj	3:nsubj|5:nsubj:x	Id=00ba|LTranslit=barykada|Translit=barykada
-3	мала	мати	VERB	Vmpis-sf	Aspect=Imp|Gender=Fem|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin	0	root	0:root	Id=00bb|LTranslit=maty|Translit=mala
-4	би	би	AUX	Q	Mood=Cnd	3	aux	3:aux	Id=00bc|LTranslit=by|Translit=by
-5	перегородити	перегородити	VERB	Vmen	Aspect=Perf|VerbForm=Inf	3	xcomp	3:xcomp	Id=00bd|LTranslit=perehorodyty|Translit=perehorodyty
-6	затишну	затишний	ADJ	Afpfsas	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing	7	amod	7:amod	Id=00be|LTranslit=zatysnyj|Translit=zatysnu
-7	вітальню	вітальня	NOUN	Ncfsan	Animacy=Inan|Case=Acc|Gender=Fem|Number=Sing	5	obj	5:obj	Id=00bf|LTranslit=vitalnа|Translit=vitalnu
-8	косачівського	косачівський	ADJ	Ao-msgf	Case=Gen|Gender=Masc|Number=Sing	9	amod	9:amod	Id=00bg|LTranslit=kosacivskyj|Translit=kosacivskoho
-9	дому	дім	NOUN	Ncmsgn	Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing	7	nmod	7:nmod	Id=00bh|LTranslit=dim|SpaceAfter=No|Translit=domu
-10	,	,	PUNCT	U	_	24	punct	24:punct	Id=00bi|LTranslit=,|Translit=,
-11	бо	бо	SCONJ	Css	_	24	mark	24:mark	Id=00bj|LTranslit=bo|SpaceAfter=No|Translit=bo
-12	,	,	PUNCT	U	_	14	punct	14:punct	Id=00bk|LTranslit=,|Translit=,
-13	як	як	SCONJ	Css	_	14	mark	14:mark	Id=00bl|LTranslit=jak|Translit=jak
-14	дізнаємося	дізнаватися	VERB	Vmpip1p	Aspect=Imp|Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	24	parataxis:discourse	24:parataxis:discourse	Id=00bm|LTranslit=diznavatysа|Translit=diznaemosа
-15	з	з	ADP	Spsg	Case=Gen	17	case	17:case	Id=00bn|LTranslit=z|Translit=z
-16	академічних	академічний	ADJ	Ao--pgf	Case=Gen|Number=Plur	17	amod	17:amod	Id=00bo|LTranslit=akademicnyj|Translit=akademicnych
-17	пояснень	пояснення	NOUN	Ncnpgn	Animacy=Inan|Case=Gen|Gender=Neut|Number=Plur	14	obl	14:obl	Id=00bp|LTranslit=pojasnennа|SpaceAfter=No|Translit=pojasnen
-18	,	,	PUNCT	U	_	14	punct	14:punct	Id=00bq|LTranslit=,|Translit=,
-19	Ольга	Ольга	PROPN	Npfsny	Animacy=Anim|Case=Nom|Gender=Fem|NameType=Giv|Number=Sing	24	nsubj	24:nsubj	Id=00br|LTranslit=Olha|Translit=Olha
-20	Драгоманова	Драгоманова	PROPN	Npfsny	Animacy=Anim|Case=Nom|Gender=Fem|NameType=Sur|Number=Sing	19	flat:name	19:flat:name	Id=00bs|LTranslit=Drahomanova|SpaceAfter=No|Translit=Drahomanova
-21	-	-	PUNCT	U	PunctType=Hyph	22	punct	22:punct	Id=00bt|LTranslit=-|SpaceAfter=No|Translit=-
-22	Косач	Косач	PROPN	Npfsny	Animacy=Anim|Case=Nom|Gender=Fem|NameType=Sur|Number=Sing|Uninflect=Yes	20	flat:name	20:flat:name	Id=00bu|LTranslit=Kosac|Translit=Kosac
-23	«	«	PUNCT	U	PunctType=Quot	24	punct	24:punct	Id=00bv|LTranslit=«|SpaceAfter=No|Translit=«
-24	стояла	стояти	VERB	Vmpis-sf	Aspect=Imp|Gender=Fem|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin	3	advcl	3:advcl	Id=00bw|LTranslit=stojaty|Translit=stojala
-25	на	на	ADP	Spsl	Case=Loc	29	case	29:case	Id=00bx|LTranslit=na|Translit=na
-26	ліберально	ліберальний	ADJ	A	Hyph=Yes	28	compound	28:compound	Id=00by|LTranslit=liberalnyj|SpaceAfter=No|Translit=liberalno
-27	-	-	PUNCT	U	PunctType=Hyph	26	punct	26:punct	Id=00bz|LTranslit=-|SpaceAfter=No|Translit=-
-28	буржуазних	буржуазний	ADJ	Ao--plf	Case=Loc|Number=Plur	29	amod	29:amod	Id=00c0|LTranslit=burzuaznyj|Translit=burzuaznych
-29	позиціях	позиція	NOUN	Ncfpln	Animacy=Inan|Case=Loc|Gender=Fem|Number=Plur	24	obl	24:obl	Id=00c1|LTranslit=pozycija|SpaceAfter=No|Translit=pozycijach
-30	»	»	PUNCT	U	PunctType=Quot	24	punct	24:punct	Id=00c2|LTranslit=»|SpaceAfter=No|Translit=»
-31	,	,	PUNCT	U	_	34	punct	34.1:punct	Id=00c3|LTranslit=,|Translit=,
-32	а	а	CCONJ	Ccs	_	34	cc	34.1:cc	Id=00c4|LTranslit=a|Translit=a
-33	її	її	DET	Pps3f-sna	Case=Nom|Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs|Uninflect=Yes	34	det	34:det	Id=00c5|LTranslit=jiji|Translit=jiji
-34	донька	донька	NOUN	Ncfsny	Animacy=Anim|Case=Nom|Gender=Fem|Number=Sing	24	conj	34.1:nsubj	Id=00c6|LTranslit=donka|Translit=donka
-34.1	стояла	стояти	VERB	Vmpis-sf	Aspect=Imp|Gender=Fem|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin	_	_	3:advcl|24:conj	Id=3c9c|LTranslit=stojaty|Translit=stojala
-35	–	–	PUNCT	U	PunctType=Dash	37	punct	37:punct	Id=00c7|LTranslit=–|Translit=–
-36	на	на	ADP	Spsl	Case=Loc	37	case	37:case	Id=00c8|LTranslit=na|Translit=na
-37	марксистських	марксистський	ADJ	Ao--plf	Case=Loc|Number=Plur	34	orphan	34.1:obl	Id=00c9|LTranslit=marksystskyj|Promoted=Yes|SpaceAfter=No|Translit=marksystskych
-38	.	.	PUNCT	U	_	3	punct	3:punct	Id=00ca|LTranslit=.|Translit=.
-
 # sent_id = 00cb
 # text = Михайло Драгоманов, котрого в листах не раз названо найдорожчим і найавторитетнішим учителем, – «еволюціонував у бік буржуазного лібералізму», тоді як «Леся Українка формувала власний революційно-демократичний світогляд, пов’язавши свою творчість і громадську діяльність з ідеями наукового соціалізму».
 # translit = Mychajlo Drahomanov, kotroho v lystach ne raz nazvano najdorozcym i najavtorytetnisym ucytelem, – «evolucionuvav u bik burzuaznoho liberalizmu», todi jak «Lesа Ukrajinka formuvala vlasnyj revolucijno-demokratycnyj svitohlаd, povjazavsy svoju tvorcist i hromadsku dijalnist z idejamy naukovoho socializmu».

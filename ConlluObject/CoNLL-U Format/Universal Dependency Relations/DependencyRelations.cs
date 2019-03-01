@@ -9,6 +9,12 @@
 		Null,
 
 		/// <summary>
+		/// Не понятно что. Разобратся!!!
+		/// </summary>
+		[Description(Description = "", FullName = "Ref")]
+		Ref,
+
+		/// <summary>
 		/// 
 		/// </summary>
 		[Description(Description = "", FullName = "Clausal modifier of noun (adjectival clause)")]

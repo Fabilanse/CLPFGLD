@@ -59,6 +59,11 @@ namespace Serialization
 
 			var fileName = ofd.FileName;
 
+			if(string.IsNullOrEmpty(fileName))
+			{
+				return;
+			}
+
 			FileStream stream = File.Create(fileName);
 			var formatter = new BinaryFormatter();
 			formatter.Serialize(stream, paragraph);
