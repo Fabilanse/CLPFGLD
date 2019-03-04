@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ConlluObject.Tokenization
@@ -22,6 +23,25 @@ namespace ConlluObject.Tokenization
 				sb.AppendFormat("{0}{1}", token.Form, token.Misc.SpaceAfter ? " " : string.Empty);
 			}
 			return sb.ToString();
+		}
+
+		/// <summary>
+		/// В связях токенов указать ссылки на токены с которыми у них связь
+		/// </summary>
+		public void RefreshRelations()
+		{
+			foreach (var token in Tokens)
+			{
+				foreach (var relation in token.Deps.Relations)
+				{
+					var targetId = relation.RelationId;
+					var targetItem = Tokens.FirstOrDefault(t => t.Id == targetId);
+					if (targetItem != null)
+					{
+						relation.RelatedToken = targetItem;
+					}
+				}
+			}
 		}
 	}
 }

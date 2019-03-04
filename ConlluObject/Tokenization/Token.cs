@@ -95,7 +95,12 @@ namespace ConlluObject.Tokenization
 	{
 		public List<DependencyRelation> Relations = new List<DependencyRelation>();
 
-		public Deps(dynamic obj)
+		internal Deps()
+		{
+			Relations = new List<DependencyRelation>();
+		}
+
+		public Deps(dynamic obj): base()
 		{
 			for (var i = 0; i < obj.__len__(); i++)
 			{
@@ -108,9 +113,11 @@ namespace ConlluObject.Tokenization
 		[Serializable]
 		public class DependencyRelation
 		{
-			public DependencyRelationsTypes RelationType { get; set; }
+			public DependencyRelationsTypes RelationType { get; internal set; }
 
-			public int RelationId { get; set; }
+			public int RelationId { get; internal set; }
+
+			public Token RelatedToken { get; internal set; }
 
 			public DependencyRelation(DependencyRelationsTypes dependencyRelationsType, int id)
 			{

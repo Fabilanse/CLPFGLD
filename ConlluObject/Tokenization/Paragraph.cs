@@ -14,5 +14,16 @@ namespace ConlluObject.Tokenization
 		{
 			Sentences = new List<Sentence>();
 		}
+
+		/// <summary>
+		/// В связях токенов указать ссылки на токены с которыми у них связь
+		/// </summary>
+		public void RefreshRelations()
+		{
+			foreach (var sentence in Sentences)
+			{
+				sentence.RefreshRelations();
+			}
+		}
 	}
 }

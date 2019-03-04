@@ -14,7 +14,7 @@ namespace Serialization
 			InitializeComponent();
 		}
 
-		private void button3_Click(object sender, EventArgs e)
+		private void DeSerialize_Click(object sender, EventArgs e)
 		{
 			var ofd = new OpenFileDialog();
 			ofd.ShowDialog();
@@ -25,10 +25,11 @@ namespace Serialization
 
 			var formatter = new BinaryFormatter();
 			var paragraph = (Paragraph)formatter.Deserialize(stream2);
+			paragraph.RefreshRelations();
 			stream2.Close();
 		}
 
-		private void button2_Click(object sender, EventArgs e)
+		private void Serialize_Click(object sender, EventArgs e)
 		{
 			var engine = Python.CreateEngine();
 			var paths = engine.GetSearchPaths();
