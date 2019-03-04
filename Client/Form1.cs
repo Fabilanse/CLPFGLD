@@ -28,5 +28,29 @@ namespace Client
 				Paragraph.InitFromBinFile(ofd.FileName);
 			}
 		}
+
+		private void Button1_Click(object sender, EventArgs e)
+		{
+			var temp = new List<Token>();
+
+			foreach (var Sentences in Paragraph.Sentences)
+			{
+				foreach (var t in Sentences.Tokens)
+				{
+					if (t.Upostag == ConlluObject.SpeechCategories.Pron)
+					{
+						temp.Add(t);
+
+					}
+				}
+			}
+
+			var all = string.Join(Environment.NewLine, temp.GroupBy(t=>t.Form.ToLower()).OrderBy(t => t.Count()).Select(t => string.Format("{0} - {1}", t.Key, t.Count())));
+
+			var allLems = string.Join(Environment.NewLine, temp.GroupBy(t => t.Lemma.ToLower()).OrderBy(t=> t.Count()).Select(t => string.Format("{0} - {1}", t.Key, t.Count())));
+
+			MessageBox.Show(all);
+			MessageBox.Show(allLems);
+		}
 	}
 }

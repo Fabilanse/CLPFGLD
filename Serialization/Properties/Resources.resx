@@ -127,6 +127,9 @@
   <data name="PythonExecuteFile" xml:space="preserve">
     <value>IronPythonApplication1.py</value>
   </data>
+  <data name="uk_iu_ud_train_ansi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uk_iu-ud-train-ansi.conllu;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Отладочный_текст" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Отладочный текст.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>

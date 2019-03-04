@@ -62,11 +62,17 @@ namespace ConlluObject.Tokenization
 
 		public Misc(dynamic obj)
 		{
-			Id = BaseTools.GetValue<string>(obj, "Id");
-			LTranslit = BaseTools.GetValue<string>(obj, "LTranslit");
-			var spaceAfter = BaseTools.GetValue<string>(obj, "SpaceAfter");
-			SpaceAfter = spaceAfter != "No" && spaceAfter != string.Empty;
-			Translit = BaseTools.GetValue<string>(obj, "Translit");
+			try
+			{
+				Id = BaseTools.GetValue<string>(obj, "Id");
+				LTranslit = BaseTools.GetValue<string>(obj, "LTranslit");
+				var spaceAfter = BaseTools.GetValue<string>(obj, "SpaceAfter");
+				SpaceAfter = spaceAfter != "No" && spaceAfter != string.Empty;
+				Translit = BaseTools.GetValue<string>(obj, "Translit");
+			}
+			catch (Exception)
+			{
+			}
 		}
 	}
 
@@ -102,11 +108,17 @@ namespace ConlluObject.Tokenization
 
 		public Deps(dynamic obj): base()
 		{
-			for (var i = 0; i < obj.__len__(); i++)
+			try
 			{
-				var relType = DependencyRelationsTools.Get(obj[i][0]);
-				var relId = obj[i][1];
-				Relations.Add(new DependencyRelation(relType, relId));
+				for (var i = 0; i < obj.__len__(); i++)
+				{
+					var relType = DependencyRelationsTools.Get(obj[i][0]);
+					var relId = obj[i][1];
+					Relations.Add(new DependencyRelation(relType, relId));
+				}
+			}
+			catch
+			{
 			}
 		}
 

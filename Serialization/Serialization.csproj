@@ -114,6 +114,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\uk_iu-ud-train-ansi.conllu">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Отладочный текст.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

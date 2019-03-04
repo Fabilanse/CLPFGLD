@@ -17,7 +17,7 @@ namespace ConlluObject
 
 		public static T StringToEnum<T>(string value) where T : struct, IConvertible
 		{
-			if (string.IsNullOrEmpty(value))
+			if (string.IsNullOrEmpty(value) || value == "_")
 			{
 				return default(T);
 			}

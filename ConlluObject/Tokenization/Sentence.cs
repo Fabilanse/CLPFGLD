@@ -35,7 +35,7 @@ namespace ConlluObject.Tokenization
 				foreach (var relation in token.Deps.Relations)
 				{
 					var targetId = relation.RelationId;
-					var targetItem = Tokens.FirstOrDefault(t => t.Id == targetId);
+					var targetItem = Tokens.Where(t=>t.Id is int).FirstOrDefault(t => t.Id == targetId);
 					if (targetItem != null)
 					{
 						relation.RelatedToken = targetItem;
