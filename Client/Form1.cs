@@ -25,7 +25,15 @@ namespace Client
 			var ofd = new OpenFileDialog();
 			if (ofd.ShowDialog() == DialogResult.OK)
 			{
+				var wait = new WaitForm();
+				wait.Show();
+				wait.Update();
+				wait.Location = new Point(
+					(Location.X + Width / 2) - (wait.Width / 2),
+					(Location.Y + Height / 2) - (wait.Height / 2));
+				wait.StartPosition = FormStartPosition.Manual;
 				Paragraph.InitFromBinFile(ofd.FileName);
+				wait.Hide();
 			}
 		}
 
