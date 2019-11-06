@@ -70,5 +70,53 @@ namespace Serialization
 			formatter.Serialize(stream, paragraph);
 			stream.Close();
 		}
+
+		private void Button1_Click(object sender, EventArgs e)
+		{
+			var engine = Python.CreateEngine();
+			var paths = engine.GetSearchPaths();
+
+			paths.Add(Properties.Resources.IronPythonLibPath);
+			paths.Add(string.Format(@"{0}\site-packages", Properties.Resources.IronPythonLibPath));
+
+			engine.SetSearchPaths(paths);
+
+			var a = engine.ExecuteFile(string.Format(@"{0}\Resources\{1}", Application.StartupPath, Properties.Resources.PythonExecuteFile));
+
+			var sentences = a.GetVariable("sentences");
+
+			var i = 0;
+			var paragraph = new Paragraph();
+			foreach (var sentence in sentences)
+			{
+				var sentenceObject = new Sentence();
+				foreach (var token in sentence)
+				{
+					var tokenObject = new Token(token);
+					sentenceObject.Tokens.Add(tokenObject);
+				}
+				paragraph.Sentences.Add(sentenceObject);
+				i++;
+				if (i >= 5)
+				{
+					break;
+				}
+			}
+
+			var ofd = new OpenFileDialog();
+			ofd.ShowDialog();
+
+			var fileName = ofd.FileName;
+
+			if (string.IsNullOrEmpty(fileName))
+			{
+				return;
+			}
+
+			FileStream stream = File.Create(fileName);
+			var formatter = new BinaryFormatter();
+			formatter.Serialize(stream, paragraph);
+			stream.Close();
+		}
 	}
 }

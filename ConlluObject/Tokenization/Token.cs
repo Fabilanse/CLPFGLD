@@ -29,6 +29,9 @@ namespace ConlluObject.Tokenization
 
 		public Misc Misc { get; set; }
 
+		// Ссылка на предложение из которого этот токен
+		public Sentence Sentence { get; internal set; }
+
 		public Token(dynamic obj)
 		{
 			Id = obj["id"];

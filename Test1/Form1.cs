@@ -41,12 +41,12 @@ namespace Test1
 			var pronouns = new List<Sentence>();
 			var errorSentenses = new List<Sentence>();
 			foreach (var tokens in sentences)
-            {
+			{
 				var sentence = new Sentence();
 
 				foreach (var t in tokens)
-                {
-                    var item = new Token(t);
+				{
+					var item = new Token(t);
 
 					sentence.Tokens.Add(item);
 
@@ -59,56 +59,60 @@ namespace Test1
 				pronouns.Add(sentence);
 			}
 
-            MessageBox.Show(string.Join(Environment.NewLine, pronouns));
-
-            #region Parsito
-
-            //Console.Error.Write("Loading parser: ");
-            //Parser parser = Parser.load(args[0]);
-            //if (parser == null)
-            //{
-            //    Console.Error.WriteLine("Cannot load parser from file '{0}'", args[0]);
-            //    return 1;
-            //}
-            //Console.Error.WriteLine("done");
-
-            //TreeInputFormat conlluInput = TreeInputFormat.newInputFormat("conllu");
-            //TreeOutputFormat conlluOutput = TreeOutputFormat.newOutputFormat("conllu");
-
-            //Tree tree = new Tree();
-            //for (bool not_eof = true; not_eof;)
-            //{
-            //    string line;
-            //    StringBuilder textBuilder = new StringBuilder();
-
-            //    // Read block
-            //    while ((not_eof = (line = Console.In.ReadLine()) != null) && line.Length > 0)
-            //    {
-            //        textBuilder.Append(line).Append('\n');
-            //    }
-            //    if (not_eof) textBuilder.Append('\n');
-
-            //    // Tokenize and tag
-            //    string text = textBuilder.ToString();
-            //    conlluInput.setText(text);
-            //    while (conlluInput.nextTree(tree))
-            //    {
-            //        parser.parse(tree);
-
-            //        string output = conlluOutput.writeTree(tree, conlluInput);
-            //        Console.Write(output);
-            //    }
-            //    if (conlluInput.lastError().Length > 0)
-            //    {
-            //        Console.Error.WriteLine("Cannot read input CoNLL-U: {0}", conlluInput.lastError());
-            //        return 1;
-            //    }
-            //}
+			// MessageBox.Show(string.Join(Environment.NewLine, pronouns));
 
 
-            #endregion
 
-            return;
+			textBox2.Text = string.Empty;
+
+			#region Parsito
+
+			//Console.Error.Write("Loading parser: ");
+			//Parser parser = Parser.load(args[0]);
+			//if (parser == null)
+			//{
+			//    Console.Error.WriteLine("Cannot load parser from file '{0}'", args[0]);
+			//    return 1;
+			//}
+			//Console.Error.WriteLine("done");
+
+			//TreeInputFormat conlluInput = TreeInputFormat.newInputFormat("conllu");
+			//TreeOutputFormat conlluOutput = TreeOutputFormat.newOutputFormat("conllu");
+
+			//Tree tree = new Tree();
+			//for (bool not_eof = true; not_eof;)
+			//{
+			//    string line;
+			//    StringBuilder textBuilder = new StringBuilder();
+
+			//    // Read block
+			//    while ((not_eof = (line = Console.In.ReadLine()) != null) && line.Length > 0)
+			//    {
+			//        textBuilder.Append(line).Append('\n');
+			//    }
+			//    if (not_eof) textBuilder.Append('\n');
+
+			//    // Tokenize and tag
+			//    string text = textBuilder.ToString();
+			//    conlluInput.setText(text);
+			//    while (conlluInput.nextTree(tree))
+			//    {
+			//        parser.parse(tree);
+
+			//        string output = conlluOutput.writeTree(tree, conlluInput);
+			//        Console.Write(output);
+			//    }
+			//    if (conlluInput.lastError().Length > 0)
+			//    {
+			//        Console.Error.WriteLine("Cannot read input CoNLL-U: {0}", conlluInput.lastError());
+			//        return 1;
+			//    }
+			//}
+
+
+			#endregion
+
+			return;
 
             #region UdpAnal
             //            //if (args.Length < 3)
@@ -213,6 +217,11 @@ namespace Test1
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void Button2_Click(object sender, EventArgs e)
 		{
 
 		}

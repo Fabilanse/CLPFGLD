@@ -8,11 +8,23 @@ namespace ConlluObject.Tokenization
 	[Serializable]
 	public class Sentence
 	{
+		// Идентификатор предложения
+		// TODO: Пока заполняется вручную, в будущем автоматизировать
+		public int Id { get; set; }
+
 		public List<Token> Tokens { get; set; }
 
 		public Sentence()
 		{
 			Tokens = new List<Token>();
+		}
+
+		public void InitSentenceTokenReferences()
+		{
+			foreach (var token in Tokens)
+			{
+				token.Sentence = this;
+			}
 		}
 
 		public override string ToString()
