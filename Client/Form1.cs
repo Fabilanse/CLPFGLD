@@ -124,113 +124,125 @@ namespace Client
 
 		private void Button3_Click(object sender, EventArgs e)
 		{
-			foreach (var linckLabel in _createdLabels)
+			try
 			{
-				Controls.Remove(linckLabel);
-			}
-
-			var startX = 10;
-			var startY = 70;
-
-			var currentPoint = new Point(startX, startY);
-			var g = this.CreateGraphics();
-
-			var iterator = 1;
-			foreach (var sentence in Paragraph.Sentences)
-			{
-				if (iterator < _fromIndex || iterator > _toIndex)
+				foreach (var linckLabel in Controls.OfType<LinkLabel>())
 				{
+					Controls.Remove(linckLabel);
+				}
+				foreach (var linckLabel in _createdLabels)
+				{
+					Controls.Remove(linckLabel);
+				}
+
+				var startX = 10;
+				var startY = 70;
+
+				var currentPoint = new Point(startX, startY);
+				var g = this.CreateGraphics();
+
+				var iterator = 1;
+				foreach (var sentence in Paragraph.Sentences)
+				{
+					if (iterator < _fromIndex || iterator > _toIndex)
+					{
+						iterator++;
+						continue;
+					}
+
+					sentence.Id = iterator;
+					var lastHeight = 0;
+					var tokenId = 0;
+					foreach (var token in sentence.Tokens)
+					{
+						var tokenLabel = new LinkLabel();
+						tokenLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+						tokenLabel.Text = string.Format("{2}{0}{1}", token.Form, token.Misc.SpaceAfter ? " " : string.Empty, tokenId == 0 ? string.Format("{0}) ", iterator) : string.Empty);
+
+						tokenLabel.Location = currentPoint;
+
+						var textSize = g.MeasureString(tokenLabel.Text, tokenLabel.Font);
+
+						tokenLabel.Width = (int)textSize.Width + 5;
+						tokenLabel.AllowDrop = true;
+
+						tokenLabel.Click += (s, eventArgs) =>
+						{
+							MessageBox.Show(token.Form);
+						};
+
+						tokenLabel.Height = (int)textSize.Height + 3;
+
+						if (token.Upostag == ConlluObject.SpeechCategories.Pron)
+						{
+							tokenLabel.LinkColor = Color.Red;
+						}
+
+						var newX = tokenLabel.Location.X + (int)textSize.Width + 2;
+						var newY = tokenLabel.Location.Y;
+						if (newX >= this.Width - 400)
+						{
+							newY += (int)textSize.Height + 2;
+							newX = startX;
+						}
+
+						lastHeight = (int)textSize.Height + 7;
+
+						currentPoint = new Point(newX, newY);
+
+						Controls.Add(tokenLabel);
+						_createdLabels.Add(tokenLabel);
+						_labelTodenRef.Add(tokenLabel.GetHashCode(), token);
+
+						tokenId++;
+
+						tokenLabel.MouseDown += (s, eventArgs) =>
+						{
+							_dragableLabel = s as LinkLabel;
+
+							if (eventArgs.Button == MouseButtons.Left)
+							{
+								_dragableLabel.DoDragDrop(token, DragDropEffects.Move);
+							}
+						};
+
+						tokenLabel.DragEnter += (s, eventArgs) =>
+						{
+							if (eventArgs.Data.GetDataPresent(typeof(Token)))
+							{
+								eventArgs.Effect = DragDropEffects.Move;
+							}
+							else
+							{
+								eventArgs.Effect = DragDropEffects.None;
+							}
+						};
+
+						tokenLabel.DragDrop += (s, eventArgs) =>
+						{
+							var target = _labelTodenRef[(s as LinkLabel).GetHashCode()];
+
+							var source = eventArgs.Data.GetData(typeof(Token)) as Token;
+
+							if (source.Equals(target))
+							{
+								return;
+							}
+
+							// Собсно действие
+							listBox1.Items.Add(string.Format("{2}.{0} -> {3}.{1}", source.Form, target.Form, source.Sentence.Id, target.Sentence.Id));
+						};
+
+					}
+					currentPoint = new Point(startX, currentPoint.Y + lastHeight);
 					iterator++;
-					continue;
 				}
-
-				sentence.Id = iterator;
-				var lastHeight = 0;
-				var tokenId = 0;
-				foreach (var token in sentence.Tokens)
-				{
-					var tokenLabel = new LinkLabel();
-					tokenLabel.Font = new Font("Arial", 12, FontStyle.Bold);
-					tokenLabel.Text = string.Format("{2}{0}{1}", token.Form, token.Misc.SpaceAfter ? " " : string.Empty, tokenId == 0 ? string.Format("{0}) ", iterator): string.Empty);
-
-					tokenLabel.Location = currentPoint;
-
-					var textSize = g.MeasureString(tokenLabel.Text, tokenLabel.Font);
-
-					tokenLabel.Width = (int)textSize.Width + 5;
-					tokenLabel.AllowDrop = true;
-
-					tokenLabel.Click += (s, eventArgs) =>
-					{
-						MessageBox.Show(token.Form);
-					};
-
-					tokenLabel.Height = (int)textSize.Height + 3;
-
-					if (token.Upostag == ConlluObject.SpeechCategories.Pron)
-					{
-						tokenLabel.LinkColor = Color.Red;
-					}
-
-					var newX = tokenLabel.Location.X + (int)textSize.Width + 2;
-					var newY = tokenLabel.Location.Y;
-					if (newX >= this.Width - 400)
-					{
-						newY += (int)textSize.Height + 2;
-						newX = startX;
-					}
-
-					lastHeight = (int)textSize.Height + 7;
-
-					currentPoint = new Point(newX, newY);
-
-					Controls.Add(tokenLabel);
-					_createdLabels.Add(tokenLabel);
-					_labelTodenRef.Add(tokenLabel.GetHashCode(), token);
-
-					tokenId++;
-
-					tokenLabel.MouseDown += (s, eventArgs) =>
-					{
-						_dragableLabel = s as LinkLabel;
-
-						if (eventArgs.Button == MouseButtons.Left)
-						{
-							_dragableLabel.DoDragDrop(token, DragDropEffects.Move);
-						}
-					};
-
-					tokenLabel.DragEnter += (s, eventArgs) =>
-					{
-						if (eventArgs.Data.GetDataPresent(typeof(Token)))
-						{
-							eventArgs.Effect = DragDropEffects.Move;
-						}
-						else
-						{
-							eventArgs.Effect = DragDropEffects.None;
-						}
-					};
-
-					tokenLabel.DragDrop += (s, eventArgs) =>
-					{
-						var target = _labelTodenRef[(s as LinkLabel).GetHashCode()];
-
-						var source = eventArgs.Data.GetData(typeof(Token)) as Token;
-
-						if (source.Equals(target))
-						{
-							return;
-						}
-
-						// Собсно действие
-						listBox1.Items.Add(string.Format("{2}.{0} -> {3}.{1}", source.Form, target.Form, source.Sentence.Id, target.Sentence.Id));
-					};
-					
-				}
-				currentPoint = new Point(startX, currentPoint.Y + lastHeight);
-				iterator++;
 			}
+			catch(Exception error)
+			{
+				MessageBox.Show(error.Message);
+			}
+
 		}
 
 		private void Button4_Click(object sender, EventArgs e)
