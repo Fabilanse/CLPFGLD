@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test1", "Test1\Test1.csproj", "{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConlluObject", "ConlluObjec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{992418D8-6210-4C3E-A3BF-66EE273ED309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{3FEF7E84-07C8-4A97-89DF-FC5F94F11199}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoNLL-UМ", "Client\CoNLL-UМ.csproj", "{3FEF7E84-07C8-4A97-89DF-FC5F94F11199}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
