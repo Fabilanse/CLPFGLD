@@ -114,7 +114,7 @@ namespace Client
 
 		private List<LinkLabel> _createdLabels = new List<LinkLabel>();
 
-		private Dictionary<int, Token> _labelTodenRef = new Dictionary<int, Token>();
+		private Dictionary<int, Token> _labelTokenReferences = new Dictionary<int, Token>();
 
 		private LinkLabel _dragableLabel = null;
 
@@ -166,11 +166,6 @@ namespace Client
 						tokenLabel.Width = (int)textSize.Width + 5;
 						tokenLabel.AllowDrop = true;
 
-						tokenLabel.Click += (s, eventArgs) =>
-						{
-							MessageBox.Show(token.Form);
-						};
-
 						tokenLabel.Height = (int)textSize.Height + 3;
 
 						if (token.Upostag == ConlluObject.SpeechCategories.Pron)
@@ -192,7 +187,7 @@ namespace Client
 
 						Controls.Add(tokenLabel);
 						_createdLabels.Add(tokenLabel);
-						_labelTodenRef.Add(tokenLabel.GetHashCode(), token);
+						_labelTokenReferences.Add(tokenLabel.GetHashCode(), token);
 
 						tokenId++;
 
@@ -220,7 +215,7 @@ namespace Client
 
 						tokenLabel.DragDrop += (s, eventArgs) =>
 						{
-							var target = _labelTodenRef[(s as LinkLabel).GetHashCode()];
+							var target = _labelTokenReferences[(s as LinkLabel).GetHashCode()];
 
 							var source = eventArgs.Data.GetData(typeof(Token)) as Token;
 
@@ -231,6 +226,18 @@ namespace Client
 
 							// Собсно действие
 							listBox1.Items.Add(string.Format("{2}.{0} -> {3}.{1}", source.Form, target.Form, source.Sentence.Id, target.Sentence.Id));
+						};
+
+						tokenLabel.MouseClick += (s, eventArgs) =>
+						{
+							if (eventArgs.Button == MouseButtons.Right)
+							{
+								var source = s as LinkLabel;
+								var sourceObject = _labelTokenReferences[(s as LinkLabel).GetHashCode()];
+
+								var treeViewForm = new TreeViewForm(sourceObject.Sentence);
+								treeViewForm.ShowDialog();
+							}
 						};
 
 					}

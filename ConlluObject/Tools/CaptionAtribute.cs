@@ -2,7 +2,7 @@
 
 namespace ConlluObject
 {
-	class DescriptionAttribute : Attribute
+	public class DescriptionAttribute : Attribute
 	{
 		/// <summary>
 		/// Описание
