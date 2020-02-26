@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using ConlluObject.Tokenization;
 
 namespace ConlluObject.Tools.TreeBuilder
@@ -69,6 +70,21 @@ namespace ConlluObject.Tools.TreeBuilder
 				}
 			}
 			return tree;
+		}
+
+		/// <summary>
+		/// Обойти конлу дерево
+		/// </summary>
+		/// <param name="tree">Ноды элемента на вин форме</param>
+		/// <param name="childs">Ноды конлу дерева</param>
+		public void PassConlluTree(TreeNodeCollection tree, List<ConlluNode> childs)
+		{
+			foreach (var child in childs)
+			{
+				var newNode = new TreeNode(child.Text);
+				tree.Add(newNode);
+				PassConlluTree(newNode.Nodes, child.Childs);
+			}
 		}
 
 		private string getAtributesValues(object propValue)

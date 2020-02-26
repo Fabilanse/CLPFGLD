@@ -1,4 +1,5 @@
 ﻿using ConlluObject.Tokenization;
+using ConlluObject.Tools.TreeBuilder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -235,7 +236,7 @@ namespace Client
 								var source = s as LinkLabel;
 								var sourceObject = _labelTokenReferences[(s as LinkLabel).GetHashCode()];
 
-								var treeViewForm = new TreeViewForm(sourceObject.Sentence);
+								var treeViewForm = new TreeViewForm(new List<Sentence> { sourceObject.Sentence });
 								treeViewForm.ShowDialog();
 							}
 						};
@@ -335,6 +336,12 @@ namespace Client
 				listBox1.Items.RemoveAt(index);
 				listBox1.SelectedIndex = index - 1 < 0 ? -1 : index - 1;
 			}
+		}
+
+		private void viewAllTree_Click(object sender, EventArgs e)
+		{
+			var treeViewForm = new TreeViewForm(Paragraph.Sentences);
+			treeViewForm.ShowDialog();
 		}
 	}
 }

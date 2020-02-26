@@ -39,6 +39,7 @@
 			this.button7 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
 			this.textBoxSteep = new System.Windows.Forms.TextBox();
+			this.viewAllTree = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// init
@@ -144,11 +145,22 @@
 			this.textBoxSteep.TabIndex = 11;
 			this.textBoxSteep.TextChanged += new System.EventHandler(this.TextBoxSteep_TextChanged);
 			// 
+			// viewAllTree
+			// 
+			this.viewAllTree.Location = new System.Drawing.Point(94, 415);
+			this.viewAllTree.Name = "viewAllTree";
+			this.viewAllTree.Size = new System.Drawing.Size(250, 23);
+			this.viewAllTree.TabIndex = 12;
+			this.viewAllTree.Text = "Показать все предложение деревом";
+			this.viewAllTree.UseVisualStyleBackColor = true;
+			this.viewAllTree.Click += new System.EventHandler(this.viewAllTree_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1040, 450);
+			this.Controls.Add(this.viewAllTree);
 			this.Controls.Add(this.textBoxSteep);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.button7);
@@ -180,6 +192,7 @@
 		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.TextBox textBoxSteep;
+		private System.Windows.Forms.Button viewAllTree;
 	}
 }
 
