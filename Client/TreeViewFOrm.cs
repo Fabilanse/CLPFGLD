@@ -1,14 +1,7 @@
 ﻿using ConlluObject.Tokenization;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ConlluObject;
-using System.Reflection;
+using ConlluObject.Tools.TreeBuilder;
 
 namespace Client
 {
@@ -18,64 +11,26 @@ namespace Client
 		{
 			InitializeComponent();
 
-			var rootNode = new TreeNode(sentence.ToString());
+			var conlluTreeBuilder = new ConlluTreeBuilder(new List<Sentence> { sentence });
 
-			foreach (var token in sentence.Tokens)
-			{
-				var tokenNode = new TreeNode(token.ToString());
+			var conlluTree = conlluTreeBuilder.BuildTree();
 
-				var tokenType = token.GetType();
-
-				foreach (var prop in tokenType.GetProperties())
-				{
-					var propValue = prop.GetValue(token);
-
-					var atributesValues = getAtributesValues(propValue);
-
-					var propNodeText = string.Format("{0}: {1}. {2}",
-						prop.Name,
-						propValue,
-						string.IsNullOrEmpty(atributesValues)
-							? string.Empty
-							: string.Format(@"Детально -> {0}", atributesValues));
-
-					var propNode = new TreeNode(propNodeText);
-
-					if (propValue is Misc)
-					{
-						var miscType = propValue.GetType();
-
-						foreach (var miscProp in miscType.GetProperties())
-						{
-							var miscNode = new TreeNode(string.Format("{0}: {1}", miscProp.Name, miscProp.GetValue(propValue)));
-							propNode.Nodes.Add(miscNode);
-						}
-					}
-
-					tokenNode.Nodes.Add(propNode);
-				}
-				rootNode.Nodes.Add(tokenNode);
-			}
-			rootNode.Expand();
-			tree.Nodes.Add(rootNode);
+			passConlluTree(tree.Nodes, conlluTree);
 		}
 
-		private void TreeViewForm_Load(object sender, EventArgs e)
+		/// <summary>
+		/// Обойти конлу дерево
+		/// </summary>
+		/// <param name="tree">Ноды элемента на вин форме</param>
+		/// <param name="childs">Ноды конлу дерева</param>
+		private void passConlluTree(TreeNodeCollection tree, List<ConlluNode> childs)
 		{
-
-		}
-
-		private string getAtributesValues(object propValue)
-		{
-			if (propValue is SpeechCategories)
+			foreach (var child in childs)
 			{
-				var description = ((SpeechCategories)propValue).GetAttributeValue<DescriptionAttribute, string>(t => t.Description);
-				var fullName = ((SpeechCategories)propValue).GetAttributeValue<DescriptionAttribute, string>(t => t.FullName);
-
-				return string.Format("Повна назва: {0}, Детально: {1}", fullName, description);
+				var newNode = new TreeNode(child.Text);
+				tree.Add(newNode);
+				passConlluTree(newNode.Nodes, child.Childs);
 			}
-
-			return string.Empty;
 		}
 	}
 }

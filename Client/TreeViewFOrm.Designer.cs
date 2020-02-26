@@ -49,7 +49,6 @@
 			this.Controls.Add(this.tree);
 			this.Name = "TreeViewForm";
 			this.Text = "TreeViewFOrm";
-			this.Load += new System.EventHandler(this.TreeViewForm_Load);
 			this.ResumeLayout(false);
 
 		}

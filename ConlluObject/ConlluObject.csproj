@@ -51,6 +51,8 @@
     <Compile Include="Tokenization\Sentence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\CaptionAtribute.cs" />
+    <Compile Include="Tools\TreeBuilder\ConlluNode.cs" />
+    <Compile Include="Tools\TreeBuilder\ConlluTreeBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
