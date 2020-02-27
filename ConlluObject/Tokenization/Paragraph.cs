@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 
 namespace ConlluObject.Tokenization
 {
@@ -23,12 +25,11 @@ namespace ConlluObject.Tokenization
 		/// </summary>
 		/// <param name="filePath">Путь к файлу</param>
 		/// <returns>Признак успешной инициализации</returns>
-		public bool InitFromBinFile(string filePath)
+		public bool InitFromBinFile(string filePath, Progress<int> progress = null)
 		{
 			using (var stream = File.OpenRead(filePath))
 			{
-				var formatter = new BinaryFormatter();
-				var paragraph = (Paragraph)formatter.Deserialize(stream);
+				var paragraph = Deserialize<Paragraph>(stream, progress);
 				if (paragraph != null)
 				{
 					paragraph.RefreshRelations();
@@ -48,6 +49,39 @@ namespace ConlluObject.Tokenization
 			{
 				sentence.RefreshRelations();
 			}
+		}
+
+		public static T Deserialize<T>(Stream stream, IProgress<int> progress)
+		{
+			if (stream == null)
+			{
+				throw new ArgumentNullException("stream");
+			}
+
+			if (!stream.CanSeek)
+			{
+				throw new ArgumentException("stream");
+			}
+
+			Timer timer = null;
+			if (progress != null)
+			{
+				timer = new Timer(delegate
+				{
+					progress.Report((int)(stream.Position * 100.0 / stream.Length));
+				},
+				null, 0, 500);
+			}
+
+			BinaryFormatter formatter = new BinaryFormatter();
+			T graph = (T)formatter.Deserialize(stream);
+
+			if (timer != null)
+			{
+				timer.Dispose();
+			}
+
+			return graph;
 		}
 	}
 }

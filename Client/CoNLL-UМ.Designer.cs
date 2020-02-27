@@ -40,6 +40,7 @@
 			this.button8 = new System.Windows.Forms.Button();
 			this.textBoxSteep = new System.Windows.Forms.TextBox();
 			this.viewAllTree = new System.Windows.Forms.Button();
+			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.SuspendLayout();
 			// 
 			// init
@@ -147,6 +148,7 @@
 			// 
 			// viewAllTree
 			// 
+			this.viewAllTree.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.viewAllTree.Location = new System.Drawing.Point(94, 415);
 			this.viewAllTree.Name = "viewAllTree";
 			this.viewAllTree.Size = new System.Drawing.Size(250, 23);
@@ -155,11 +157,21 @@
 			this.viewAllTree.UseVisualStyleBackColor = true;
 			this.viewAllTree.Click += new System.EventHandler(this.viewAllTree_Click);
 			// 
+			// progressBar1
+			// 
+			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.progressBar1.Location = new System.Drawing.Point(364, 415);
+			this.progressBar1.Name = "progressBar1";
+			this.progressBar1.Size = new System.Drawing.Size(391, 23);
+			this.progressBar1.TabIndex = 13;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1040, 450);
+			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.viewAllTree);
 			this.Controls.Add(this.textBoxSteep);
 			this.Controls.Add(this.button8);
@@ -193,6 +205,7 @@
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.TextBox textBoxSteep;
 		private System.Windows.Forms.Button viewAllTree;
+		private System.Windows.Forms.ProgressBar progressBar1;
 	}
 }
 

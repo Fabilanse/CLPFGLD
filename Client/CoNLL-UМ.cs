@@ -23,26 +23,29 @@ namespace Client
 			InitializeComponent();
 		}
 
-		private void init_Click(object sender, EventArgs e)
+		private string fimeName = "";
+
+		private async void init_Click(object sender, EventArgs e)
 		{
+			var progress = new Progress<int>(v =>
+			{
+				progressBar1.Value = v;
+			});
+
 			var ofd = new OpenFileDialog();
 			if (ofd.ShowDialog() == DialogResult.OK)
 			{
-				var wait = new WaitForm();
-				wait.Show();
-				wait.Update();
-				wait.Location = new Point(
-					(Location.X + Width / 2) - (wait.Width / 2),
-					(Location.Y + Height / 2) - (wait.Height / 2));
-				wait.StartPosition = FormStartPosition.Manual;
-				Paragraph.InitFromBinFile(ofd.FileName);
-
-				foreach (var sentence in Paragraph.Sentences)
+				fimeName = ofd.FileName;
+				await Task.Run(() =>
 				{
-					sentence.InitSentenceTokenReferences();
-				}
+					Paragraph.InitFromBinFile(fimeName, progress);
 
-				wait.Hide();
+					foreach (var sentence in Paragraph.Sentences)
+					{
+						sentence.InitSentenceTokenReferences();
+					}
+				});
+				progressBar1.Value = 0;
 			}
 		}
 
@@ -66,34 +69,6 @@ namespace Client
 
 			MessageBox.Show(all);
 			MessageBox.Show(allLems);
-		}
-
-		private void TestMethod()
-		{
-			var Paragraph = new Paragraph();
-			var dialog = new OpenFileDialog();
-			dialog.ShowDialog();
-			Paragraph.InitFromBinFile(dialog.FileName);
-
-			var pronList = new List<Token>();
-			foreach (var Sentences in Paragraph.Sentences)
-			{
-				foreach (var token in Sentences.Tokens)
-				{
-					if (token.Upostag == ConlluObject.SpeechCategories.Pron)
-					{
-						pronList.Add(token);
-					}
-				}
-			}
-
-			var pronListGroupedByLemma = pronList
-				.GroupBy(t => t.Lemma.ToLower())
-				.OrderBy(t => t.Count());
-
-
-			var i = 1;
-			var text = string.Join(Environment.NewLine, Paragraph.Sentences.Select(t => string.Format("{0}) {1}",i++, t.ToString())).ToList());
 		}
 
 		private void Button2_Click(object sender, EventArgs e)
@@ -253,11 +228,6 @@ namespace Client
 
 		}
 
-		private void Button4_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		private void Forvard_Click(object sender, EventArgs e)
 		{
 			if (_fromIndex - _steep < 0)
@@ -341,7 +311,7 @@ namespace Client
 		private void viewAllTree_Click(object sender, EventArgs e)
 		{
 			var treeViewForm = new TreeViewForm(Paragraph.Sentences);
-			treeViewForm.ShowDialog();
+			treeViewForm.Show();
 		}
 	}
 }
