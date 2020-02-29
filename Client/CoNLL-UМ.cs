@@ -313,5 +313,11 @@ namespace Client
 			var treeViewForm = new TreeViewForm(Paragraph.Sentences);
 			treeViewForm.Show();
 		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			var treeViewForm = new ReferenceCreator(Paragraph.Sentences);
+			treeViewForm.Show();
+		}
 	}
 }

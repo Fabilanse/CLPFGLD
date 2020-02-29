@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace ConlluObject.Tools.TreeBuilder
 {
-	public class ConlluNode
+	public class ConlluNode: TreeNode
 	{
-		/// <summary>
-		/// Текст вершины
-		/// </summary>
-		public string Text { get; private set; }
+		///// <summary>
+		///// Текст вершины
+		///// </summary>
+		//public string Text { get; private set; }
 
 		/// <summary>
 		/// Дочерние элементы
@@ -15,14 +16,24 @@ namespace ConlluObject.Tools.TreeBuilder
 		public List<ConlluNode> Childs { get; private set; }
 
 		/// <summary>
+		/// Привязанный объект
+		/// </summary>
+		public object Sender { get; private set; }
+
+		public ConlluNode()
+		{
+
+		}
+
+		/// <summary>
 		/// Конструктор
 		/// </summary>
 		/// <param name="text">Текст</param>
-		public ConlluNode(string text)
+		public ConlluNode(object sender, string text)
 		{
+			Sender = sender;
 			Text = text;
 			Childs = new List<ConlluNode>();
 		}
 	}
-
 }

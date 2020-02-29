@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using ConlluObject.Tokenization;
 
@@ -30,12 +31,12 @@ namespace ConlluObject.Tools.TreeBuilder
 			var tree = new List<ConlluNode>();
 			foreach (var sentence in Sentences)
 			{
-				var sentenceNode = new ConlluNode(sentence.ToString());
+				var sentenceNode = new ConlluNode(sentence, sentence.ToString());
 				tree.Add(sentenceNode);
 
 				foreach (var token in sentence.Tokens)
 				{
-					var tokenNode = new ConlluNode(token.ToString());
+					var tokenNode = new ConlluNode(token, token.ToString());
 					sentenceNode.Childs.Add(tokenNode);
 
 					var tokenType = token.GetType();
@@ -53,7 +54,7 @@ namespace ConlluObject.Tools.TreeBuilder
 								? string.Empty
 								: string.Format(@"Детально -> {0}", atributesValues));
 
-						var propNode = new ConlluNode(propNodeText);
+						var propNode = new ConlluNode(null, propNodeText);
 						tokenNode.Childs.Add(propNode);
 
 						if (propValue is Misc)
@@ -62,7 +63,7 @@ namespace ConlluObject.Tools.TreeBuilder
 
 							foreach (var miscProp in miscType.GetProperties())
 							{
-								var miscNode = new ConlluNode(string.Format("{0}: {1}", miscProp.Name, miscProp.GetValue(propValue)));
+								var miscNode = new ConlluNode(null, string.Format("{0}: {1}", miscProp.Name, miscProp.GetValue(propValue)));
 								propNode.Childs.Add(miscNode);
 							}
 						}
@@ -81,9 +82,8 @@ namespace ConlluObject.Tools.TreeBuilder
 		{
 			foreach (var child in childs)
 			{
-				var newNode = new TreeNode(child.Text);
-				tree.Add(newNode);
-				PassConlluTree(newNode.Nodes, child.Childs);
+				PassConlluTree(child.Nodes, child.Childs);
+				tree.Add(child);
 			}
 		}
 

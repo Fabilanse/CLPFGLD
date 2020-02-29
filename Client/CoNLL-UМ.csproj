@@ -93,6 +93,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReferenceCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReferenceCreator.Designer.cs">
+      <DependentUpon>ReferenceCreator.cs</DependentUpon>
+    </Compile>
     <Compile Include="TreeViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReferenceCreator.resx">
+      <DependentUpon>ReferenceCreator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TreeViewFOrm.resx">
       <DependentUpon>TreeViewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +147,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Desktop\ResizableControl\ResizableControl.csproj">
+      <Project>{426b29e9-6dc1-4974-a2d4-9b31751b5d2c}</Project>
+      <Name>ResizableControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\WindowsFormsApplication1\ClsResize.csproj">
+      <Project>{efbfcf73-57d9-444f-bfd9-bb8019088452}</Project>
+      <Name>ClsResize</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConlluObject\ConlluObject.csproj">
       <Project>{5d8c2d10-f79f-44d0-bc4d-434d106604e0}</Project>
       <Name>ConlluObject</Name>
