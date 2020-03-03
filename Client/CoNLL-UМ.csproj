@@ -99,6 +99,7 @@
     <Compile Include="ReferenceCreator.Designer.cs">
       <DependentUpon>ReferenceCreator.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReferenceEditor.cs" />
     <Compile Include="TreeViewForm.cs">
       <SubType>Form</SubType>
     </Compile>

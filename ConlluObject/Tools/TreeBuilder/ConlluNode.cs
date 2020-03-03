@@ -18,7 +18,7 @@ namespace ConlluObject.Tools.TreeBuilder
 		/// <summary>
 		/// Привязанный объект
 		/// </summary>
-		public object Sender { get; private set; }
+		public object Sender { get; set; }
 
 		public ConlluNode()
 		{
