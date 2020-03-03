@@ -147,10 +147,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Desktop\ResizableControl\ResizableControl.csproj">
-      <Project>{426b29e9-6dc1-4974-a2d4-9b31751b5d2c}</Project>
-      <Name>ResizableControl</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ConlluObject\ConlluObject.csproj">
       <Project>{5d8c2d10-f79f-44d0-bc4d-434d106604e0}</Project>
       <Name>ConlluObject</Name>
