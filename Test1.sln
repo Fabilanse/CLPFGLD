@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test1", "Test1\Test1.csproj", "{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parsito", "Parsito\Parsito.csproj", "{0EBE527E-3EBE-4AD8-BFF4-188993C35F04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConlluObject", "ConlluObject\ConlluObject.csproj", "{5D8C2D10-F79F-44D0-BC4D-434D106604E0}"
@@ -25,18 +23,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Debug|x64.Build.0 = Debug|Any CPU
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Debug|x86.ActiveCfg = Debug|x86
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Debug|x86.Build.0 = Debug|x86
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Release|x64.ActiveCfg = Release|x64
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Release|x64.Build.0 = Release|x64
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Release|x86.ActiveCfg = Release|x86
-		{B68A0B8B-4CFF-4168-9F76-92E21D62BC45}.Release|x86.Build.0 = Release|x86
 		{0EBE527E-3EBE-4AD8-BFF4-188993C35F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0EBE527E-3EBE-4AD8-BFF4-188993C35F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EBE527E-3EBE-4AD8-BFF4-188993C35F04}.Debug|x64.ActiveCfg = Debug|Any CPU
